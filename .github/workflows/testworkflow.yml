@@ -20,9 +20,8 @@ on:
         - Staging
         - Production
 env:
-  LOG_LEVEL_OPTS: |
-    ${{ fromJson('{ Development: "DEBUG", Production: "INFO" }') }}
-  LOG_LEVEL: $LOG_LEVEL_OPTS[${{ github.event.inputs.deployment_type }}]
+  LOG_LEVEL: |
+    ${{ fromJson('{ Development: "DEBUG", Production: "INFO" }'[github.event.inputs.deployment_type]) }}
   
 jobs:
 
