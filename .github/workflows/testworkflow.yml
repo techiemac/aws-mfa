@@ -13,7 +13,7 @@ on:
       deployment_type:
         description: 'Type of deployment'
         required: true
-        default: Development
+        default: "Development"
         type: choice
         options:
         - Development
