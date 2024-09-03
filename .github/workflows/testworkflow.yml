@@ -1,0 +1,45 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  #push:
+  #  branches: [ "master" ]
+  #pull_request:
+  #  branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      deployment_type:
+        description: 'Type of deployment'
+        required: true
+        type: choice
+        options:
+        - Development
+        - Test
+        - Staging
+        - Production
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+    - name: Build
+      run: echo 'Build some stuff'
+    - name: Test
+      run: echo 'Testing some stuff'
+      
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.deployment_type }}
+    steps:
+    - name: Output deploy type
+      run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type }}'
+    - name: Mock environmment deploy
+      run: echo 'Deploy to $ACCOUNT_ID with secret $SECRET_PASSWORD_TEST'
