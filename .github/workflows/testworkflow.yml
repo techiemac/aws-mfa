@@ -21,7 +21,7 @@ on:
         - Production
 env:
   LOG_LEVEL: |
-    ${{ fromJson('{ Development: "DEBUG", Production: "INFO" }')[deployment_type] }}
+    ${{ fromJson('{ Development: "DEBUG", Production: "INFO" }')[${{ github.event.inputs.deployment_type }}] }}
   
 jobs:
 
