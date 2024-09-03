@@ -37,9 +37,9 @@ jobs:
       
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.deployment_type }}
+    environment: Development
     steps:
     - name: Output deploy type
       run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type }}'
     - name: Mock environmment deploy
-      run: echo "Deploy to $env:ACCOUNT_ID with secret $env:SECRET_PASSWORD_TEST"
+      run: echo "Deploy to $ACCOUNT_ID with secret $SECRET_PASSWORD_TEST"
