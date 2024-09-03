@@ -46,4 +46,4 @@ jobs:
     - name: Output deploy type
       run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type }}'
     - name: Mock environmment deploy
-      run: echo "Deploy to ${{ vars.ACCOUNT_ID }} with log level $LOG_LEVEL. Shhh the secret is ${{ secrets.SECRET_PASSWORD_TEST }} (never output this for real though)"
+      run: echo "Deploy to ${{ vars.ACCOUNT_ID }} with log level $LOG_LEVEL. Shhh the secret is ${{ secrets.SECRET_PASSWORD_TEST }} (GitHub obsfucates this)"
