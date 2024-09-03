@@ -1,7 +1,7 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: Mock deploy workflow
 
 on:
   #push:
@@ -42,4 +42,4 @@ jobs:
     - name: Output deploy type
       run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type }}'
     - name: Mock environmment deploy
-      run: echo "Deploy to $ACCOUNT_ID with secret $SECRET_PASSWORD_TEST"
+      run: echo 'Deploy to ${{ vars.ACCOUNT_ID }} with secret ${{ vars.SECRET_PASSWORD_TEST }}'
