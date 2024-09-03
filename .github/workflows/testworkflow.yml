@@ -42,9 +42,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment: ${{ github.event.inputs.deployment_type }}
+    environment: ${{ github.event.inputs.deployment_type || "Dev" }}
     steps:
     - name: Output deploy type
-      run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type }}'
+      run: echo 'Deploy type';echo '${{ github.event.inputs.deployment_type || "Dev" }}'
     - name: Mock environmment deploy
       run: echo "Deploy to ${{ vars.ACCOUNT_ID }} with log level $LOG_LEVEL. Shhh the secret is ${{ secrets.SECRET_PASSWORD_TEST }} (GitHub obsfucates this)"
