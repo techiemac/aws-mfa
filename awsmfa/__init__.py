@@ -89,15 +89,7 @@ def main():
     setup_logger(level)
 
     if not os.path.isfile(AWS_CREDS_PATH):
-        console_input = prompter()
-        create = console_input("Could not locate credentials file at {}, "
-                               "would you like to create one? "
-                               "[y/n]".format(AWS_CREDS_PATH))
-        if create.lower() == "y":
-            with open(AWS_CREDS_PATH, 'a'):
-                pass
-        else:
-            log_error_and_exit(logger, 'Could not locate credentials file at '
+        log_error_and_exit(logger, 'Could not locate credentials file at '
                                '%s' % (AWS_CREDS_PATH,))
 
     config = get_config(AWS_CREDS_PATH)
