@@ -70,5 +70,6 @@ jobs:
         docker info
     - name: Build and Run Docker
       run: |
+        ls -la
         docker build -t aws-mfa .
         docker run aws-mfa
