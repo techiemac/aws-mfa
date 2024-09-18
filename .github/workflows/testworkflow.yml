@@ -68,6 +68,7 @@ jobs:
       run: |
         docker version
         docker info
+    - uses: actions/checkout@v4
     - name: Build and Run Docker
       run: |
         ls -la
