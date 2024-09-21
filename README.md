@@ -1,6 +1,8 @@
 aws-mfa: Easily manage your AWS Security Credentials when using Multi-Factor Authentication (MFA)
 =================================================================================================
 
+This is a fork of aws-mfa I made years ago. Now I mostly use it to run experiments. I rewrote this in golang some time back and will probably open source it. Better yet, use Identity Center with `aws sso login`
+
 **aws-mfa** makes it easy to manage your AWS SDK Security Credentials when Multi-Factor Authentication (MFA) is enforced on your AWS account. It automates the process of obtaining temporary credentials from the [AWS Security Token Service](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) and updating your [AWS Credentials](https://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs) file (located at `~/.aws/credentials`). Traditional methods of managing MFA-based credentials requires users to write their own bespoke scripts/wrappers to fetch temporary credentials from STS and often times manually update their AWS credentials file.
 
 The concept behind **aws-mfa** is that there are 2 types of credentials:
